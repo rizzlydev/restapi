@@ -46,6 +46,28 @@ loghandler = {
         message: 'An internal error occurred.'
     }
 }
+router.get('/ssweb', async (req, res, next) => {
+ let {
+  format,
+  url
+ } = req.query
+ if (!url) return res.status(400).send({
+  status: 400, message: 'Masukkan parameter url'
+ })
+ try {
+  isfull = req.query.hasOwnProperty('full')
+  eses = await require('../lib/ssweb')(url, isfull)
+  res.set('Content-Length', eses.length)
+  res.set('Content-Type', 'image/png')
+  res.send(eses)
+ } catch (e) {
+  console.error(e)
+  res.status(500).send({
+   status: 500, message: 'Internal Server Error, chat owner to fix the feature!'
+  })
+ }
+})
+
 
 const { emomix } = require("../lib/scraper")
 router.get('/emojimix/:emo1/:emo2', async (req, res, next) => {
