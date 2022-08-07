@@ -46,7 +46,7 @@
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.7",
     "qs": "^6.10.1",
-    "puppetter": "latest",
+    "puppeteer": "latest",
     "rizfurr-api": "latest",
     "rizfurr-canvas": "^1.3.0",
     "rizfurr-canvas-v2": "^1.0.0",
